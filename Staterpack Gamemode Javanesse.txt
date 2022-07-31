@@ -1,0 +1,19 @@
+// variabel
+
+P_SP,
+
+ // buat structure di database account dengan nama "SP"
+
+CMD:csp(playerid, params[])
+{
+	if(GetPlayerData(playerid, P_SP) > 0)
+	{
+	    return Info(playerid, "Anda sudah claim staterpack sebelumnya.!");
+	}
+	GivePlayerMoneyEx(playerid, 300000);
+	g_player[playerid][P_MONEY] += 300000;
+	AddPlayerData(playerid, P_SP, +, 1);
+	UpdatePlayerDatabaseInt(playerid, "SP", GetPlayerData(playerid, P_SP));
+	SendClientMessage(playerid, -1, "Anda Berhasil claim starterpack senilai $300000");
+	return 1;
+}
